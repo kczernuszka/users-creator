@@ -1,11 +1,9 @@
-#ifndef XLSTOUSERS_CONFIGPARSER_FILEPARSER_CONFIG_H
-#define XLSTOUSERS_CONFIGPARSER_FILEPARSER_CONFIG_H
+#ifndef XLSTOUSERS_CONFIGPARSER_CONFIG_H
+#define XLSTOUSERS_CONFIGPARSER_CONFIG_H
 
 #include <map>
 #include <vector>
 #include <string>
-
-const std::string DEFAULT_VALUES_FILE = "defaultValues";
 
 namespace xlstousers { namespace config_parser
 {
@@ -35,6 +33,13 @@ struct Quota {
   std::string path_quota;
 };
 
+struct ProgramSettings {
+  std::string config_file;
+  bool interactive_mode;
+  bool test_mode;
+  bool quota;
+};
+
 struct Config {
   std::vector<std::string> columns;
   int password_lenght;
@@ -44,4 +49,4 @@ struct Config {
 
 }}  // namespace xlstousers::config_parser
 
-#endif  // XLSTOUSERS_CONFIGPARSER_FILEPARSER_CONFIG_H
+#endif  // XLSTOUSERS_CONFIGPARSER_CONFIG_H
