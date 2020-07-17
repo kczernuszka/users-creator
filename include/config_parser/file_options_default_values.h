@@ -1,21 +1,21 @@
-#ifndef XLSTOUSERS_FILEPARSER_OPTIONSDEFAULTVALUES_H
-#define XLSTOUSERS_FILEPARSER_OPTIONSDEFAULTVALUES_H
+#ifndef XLSTOUSERS_FILEPARSER_FILEOPTIONSDEFAULTVALUES_H
+#define XLSTOUSERS_FILEPARSER_FILEOPTIONSDEFAULTVALUES_H
 
 #include <map>
+#include <string>
 
 #include "file_options.h"
 
-namespace 
-{
+namespace {
 
 // options names with default values
-std::map<std::string, std::string> CONFIG_OPTIONS {
-    { COLUMNS, "imie,nazwisko" }, 
-    { PASSWORD_LEN, "8" }, 
-    { MIN_UID, "1001" }, 
+std::map<std::string, std::string> FILE_OPTIONS {
+    { COLUMNS, "imie,nazwisko" },
+    { PASSWORD_LEN, "8" },
+    { MIN_UID, "1001" },
     { MAX_UID, "10000" },
     { USER_GID, "10" },
-    { HOME, "/home" }, 
+    { HOME, "/home" },
     { TIME, "0" },
     { USER_CLASS, "staff" },
     { USER_SHELL, "/bin/ksh" },
@@ -31,4 +31,4 @@ std::map<std::string, std::string> CONFIG_OPTIONS {
 
 }  // namespace
 
-#endif  // XLSTOUSERS_FILEPARSER_OPTIONSDEFAULTVALUES_H
+#endif  // XLSTOUSERS_FILEPARSER_FILEOPTIONSDEFAULTVALUES_H
