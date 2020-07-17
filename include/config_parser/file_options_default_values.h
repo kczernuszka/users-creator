@@ -3,7 +3,7 @@
 
 #include <map>
 
-#include "options.h"
+#include "file_options.h"
 
 namespace 
 {
