@@ -30,8 +30,8 @@ TEST_F(ConfigParserTest, DefaultValuesAreSet) {
 
 TEST_F(ConfigParserTest, ParseFileWithValidOptionsAndValues) {
   std::ofstream file{"config1.txt-test"};
-  file << "gid=10" << std::endl << "password_length=12" << std::endl 
-       << "home_directory=/home";
+  file << USER_GID << "=10" << std::endl << PASSWORD_LEN << "=12" 
+       << std::endl << HOME << "=/home";
   file.close();
 
   auto config = parser.getConfig("config1.txt-test");
