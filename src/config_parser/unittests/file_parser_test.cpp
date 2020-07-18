@@ -21,6 +21,7 @@ class ConfigParserTest : public ::testing::Test {
 TEST_F(ConfigParserTest, DefaultValuesAreSet) {
   auto config = parser.getConfig("");
 
+  if (!config) FAIL();
   EXPECT_EQ(config->password_lenght, std::stoi(FILE_OPTIONS[PASSWORD_LEN]));
   EXPECT_EQ(config->user.home, FILE_OPTIONS[HOME]);
   EXPECT_EQ(config->quota.block_hard_limit, 
@@ -35,6 +36,7 @@ TEST_F(ConfigParserTest, ParseFileWithValidOptionsAndValues) {
 
   auto config = parser.getConfig("config1.txt-test");
 
+  if (!config) FAIL();
   EXPECT_EQ(config->user.gid, 10);
   EXPECT_EQ(config->password_lenght, 12);
   EXPECT_EQ(config->user.home, "/home");
