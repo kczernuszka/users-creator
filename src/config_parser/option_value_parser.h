@@ -6,6 +6,8 @@
 #include <boost/algorithm/string.hpp>
 #include <boost/tokenizer.hpp>
 
+const char* const VALUES_DELIMITER = ",";
+
 namespace xlstousers { namespace config_parser
 {
 
