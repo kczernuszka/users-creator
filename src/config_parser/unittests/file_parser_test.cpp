@@ -6,11 +6,11 @@
 
 #include "../file_parser.h"
 
-class ConfigParserTest : public ::testing::Test {
+class FileParserTest : public ::testing::Test {
  protected:
   xlstousers::config_parser::FileParser parser;
 
-  ~ConfigParserTest() {
+  ~FileParserTest() {
     remove("config1.txt-test");
     remove("config2.txt-test");
     remove("config3.txt-test");
@@ -18,7 +18,7 @@ class ConfigParserTest : public ::testing::Test {
   }
 };
 
-TEST_F(ConfigParserTest, DefaultValuesAreSet) {
+TEST_F(FileParserTest, DefaultValuesAreSet) {
   auto config = parser.getConfig("");
 
   if (!config) FAIL();
@@ -28,7 +28,7 @@ TEST_F(ConfigParserTest, DefaultValuesAreSet) {
             std::stoi(FILE_OPTIONS[BLOCKS_HARD_LIMIT]));
 }
 
-TEST_F(ConfigParserTest, ParseFileWithValidOptionsAndValues) {
+TEST_F(FileParserTest, ParseFileWithValidOptionsAndValues) {
   std::ofstream file{"config1.txt-test"};
   file << USER_GID << "=10" << std::endl << PASSWORD_LEN << "=12" 
        << std::endl << HOME << "=/home";
@@ -42,7 +42,7 @@ TEST_F(ConfigParserTest, ParseFileWithValidOptionsAndValues) {
   EXPECT_EQ(config->user.home, "/home");
 }
 
-TEST_F(ConfigParserTest, ParseFileWithIncorrectOption) {
+TEST_F(FileParserTest, ParseFileWithIncorrectOption) {
   std::ofstream file{"config2.txt-test"};
   file << "initial_uid=2100" << std::endl << "wrongParameter=12" << std::endl 
        << "final_uid=7777";
@@ -53,7 +53,7 @@ TEST_F(ConfigParserTest, ParseFileWithIncorrectOption) {
   EXPECT_FALSE(config);
 }
 
-TEST_F(ConfigParserTest, ParseFileWithWrongFormat) {
+TEST_F(FileParserTest, ParseFileWithWrongFormat) {
   std::ofstream file{"config4.txt-test"};
   file << "arararararararar,rarara. arararara" << std::endl;
   file.close();
@@ -63,13 +63,13 @@ TEST_F(ConfigParserTest, ParseFileWithWrongFormat) {
   EXPECT_FALSE(config);
 }
 
-TEST_F(ConfigParserTest, HandleNonExistentFile) {
+TEST_F(FileParserTest, HandleNonExistentFile) {
   auto config = parser.getConfig("NonExistentFile");
 
   EXPECT_TRUE(config);
 }
 
-TEST_F(ConfigParserTest, ParseFileWithIncorrectValue) {
+TEST_F(FileParserTest, ParseFileWithIncorrectValue) {
   std::ofstream file{"config3.txt-test"};
   file << "password_length=wrongValue";
   file.close();
