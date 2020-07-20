@@ -12,9 +12,9 @@ std::unique_ptr<Config> FileParser::getConfig(std::string file) {
     return nullptr;
 }
 
-po::options_description 
+po::options_description
 FileParser::setOptions(std::map<std::string, std::string> options) {
-  po::options_description desc("All options");
+  po::options_description desc("File options");
 
   for (auto it = options.begin(); it != options.end(); it++) {
     if (std::all_of(it->second.begin(), it->second.end(), ::isdigit))
