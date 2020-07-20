@@ -1,10 +1,9 @@
 #ifndef XLSTOUSERS_CONFIGPARSER_CMDOPTIONS_H
 #define XLSTOUSERS_CONFIGPARSER_CMDOPTIONS_H
 
-#include <utility>
 #include <string>
 
-const std::string CONFIG_FILE = "config_file";
+const std::string CONFIG_FILE = "config";
 const std::string INTERACTIVE = "interactive";
 const std::string TEST_MODE = "test";
 const std::string QUOTA = "quota";
