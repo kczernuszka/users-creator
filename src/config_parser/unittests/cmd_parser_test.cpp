@@ -70,18 +70,6 @@ TEST_F(CmdParserTest, ParseUnknownCmdParameter) {
   EXPECT_FALSE(settings);
 }
 
-TEST_F(CmdParserTest, ParseFlagCmdParameterWithValue) {
-  char arg0[] = "xlstousers";
-  std::string arg1 = "-" + INTERACTIVE_SHORT;
-  char arg2[] = "unecessaryValue";
-  char *argv[] = {arg0, &arg1[0], arg2}; int argc = 3;
-  xlstousers::config_parser::CmdParser cmd_parser{argc, argv};
-
-  auto settings = cmd_parser.getConfig();
-
-  EXPECT_FALSE(settings);
-}
-
 TEST_F(CmdParserTest, ParseCmdParameterWithoutMandatoryValue) {
   char arg0[] = "xlstousers";
   std::string arg1 = "--" + CONFIG_FILE;
