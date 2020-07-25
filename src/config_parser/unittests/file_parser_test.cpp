@@ -44,8 +44,8 @@ TEST_F(FileParserTest, ParseFileWithValidOptionsAndValues) {
 
 TEST_F(FileParserTest, ParseFileWithIncorrectOption) {
   std::ofstream file{"config2.txt-test"};
-  file << "initial_uid=2100" << std::endl << "wrongParameter=12" << std::endl 
-       << "final_uid=7777";
+  file << MIN_UID << "=2100" << std::endl << "wrongParameter=12" << std::endl 
+       << MAX_UID << "=7777";
   file.close();
 
   auto config = parser.getConfig("config2.txt-test");
