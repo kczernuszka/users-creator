@@ -34,6 +34,7 @@ struct Quota {
 };
 
 struct ProgramSettings {
+  std::string xls_file;
   std::string config_file;
   bool interactive_mode;
   bool test_mode;

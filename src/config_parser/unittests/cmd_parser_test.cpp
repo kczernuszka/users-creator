@@ -80,3 +80,15 @@ TEST_F(CmdParserTest, ParseCmdParameterWithoutMandatoryValue) {
 
   EXPECT_FALSE(settings);
 }
+
+TEST_F(CmdParserTest, ParseValueWithoutOption) {
+  char arg0[] = "xlstousers";
+  char arg1[] = "test.xls";
+  char *argv[] = {arg0, arg1}; int argc = 2;
+  xlstousers::config_parser::CmdParser cmd_parser{argc, argv};
+
+  auto settings = cmd_parser.getConfig();
+
+  if (!settings) FAIL();
+  EXPECT_EQ(settings->xls_file, "test.xls");
+}
