@@ -3,7 +3,7 @@
 
 #include "cmd_options.h"
 
-const std::string DEFAULT_CONFIG_PATH = "/etc/xlstousers/";
+const char DEFAULT_CONFIG_PATH[] = "/etc/xlstousers/";
 const bool DEFAULT_INTERACTIVE = false;
 const bool DEFAULT_TEST = false;
 const bool DEFAULT_QUOTA = false;

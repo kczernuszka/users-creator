@@ -18,7 +18,7 @@ TEST_F(CmdParserTest, DefaultValuesAreSet) {
 
 TEST_F(CmdParserTest, ParseCmdParameterWithValue) {
   char arg0[] = "xlstousers";
-  std::string arg1 = "--" + CONFIG_FILE;
+  std::string arg1 = "--" + std::string(CONFIG_FILE);
   char arg2[] =  "test";
   char *argv[] = {arg0, &arg1[0], arg2}; int argc = 3;
   xlstousers::config_parser::CmdParser cmd_parser{argc, argv};
@@ -31,8 +31,8 @@ TEST_F(CmdParserTest, ParseCmdParameterWithValue) {
 
 TEST_F(CmdParserTest, ParseShortNameCmdParameters) {
   char arg0[] = "xlstousers";
-  std::string arg1 = "-" + INTERACTIVE_SHORT;
-  std::string arg2 = "-" + TEST_MODE_SHORT;
+  std::string arg1 = "-" + std::string(INTERACTIVE_SHORT);
+  std::string arg2 = "-" + std::string(TEST_MODE_SHORT);
   char *argv[] = {arg0, &arg1[0], &arg2[0]}; int argc = 3;
   xlstousers::config_parser::CmdParser cmd_parser{argc, argv};
 
@@ -46,8 +46,8 @@ TEST_F(CmdParserTest, ParseShortNameCmdParameters) {
 
 TEST_F(CmdParserTest, ParseFullNameCmdParameters) {
   char arg0[] = "xlstousers";
-  std::string arg1 = "--" + INTERACTIVE;
-  std::string arg2 = "--" + TEST_MODE;
+  std::string arg1 = "--" + std::string(INTERACTIVE);
+  std::string arg2 = "--" + std::string(TEST_MODE);
   char *argv[] = {arg0, &arg1[0], &arg2[0]}; int argc = 3;
   xlstousers::config_parser::CmdParser cmd_parser{argc, argv};
 
@@ -72,7 +72,7 @@ TEST_F(CmdParserTest, ParseUnknownCmdParameter) {
 
 TEST_F(CmdParserTest, ParseCmdParameterWithoutMandatoryValue) {
   char arg0[] = "xlstousers";
-  std::string arg1 = "--" + CONFIG_FILE;
+  std::string arg1 = "--" + std::string(CONFIG_FILE);
   char *argv[] = {arg0, &arg1[0]}; int argc = 2;
   xlstousers::config_parser::CmdParser cmd_parser{argc, argv};
 
