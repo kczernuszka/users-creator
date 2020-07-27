@@ -4,7 +4,7 @@ namespace xlstousers {
 namespace config_parser {
 
 std::unique_ptr<Config> FileParser::getConfig(std::string file) {
-  auto desc = setOptions(FILE_OPTIONS);
+  auto desc = setOptions(file_options);
   auto vm = getVariablesMap(desc, file);
   if(!vm.empty())
     return getValues(vm);

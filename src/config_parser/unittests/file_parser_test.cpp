@@ -19,13 +19,17 @@ class FileParserTest : public ::testing::Test {
 };
 
 TEST_F(FileParserTest, DefaultValuesAreSet) {
+  const int default_password_len = std::stoi(
+      xlstousers::config_parser::file_options[PASSWORD_LEN]);
+  const std::string default_home = xlstousers::config_parser::file_options[HOME];
+  const int default_blocks_hard_limit = std::stoi(
+      xlstousers::config_parser::file_options[BLOCKS_HARD_LIMIT]);
   auto config = parser.getConfig("");
 
   if (!config) FAIL();
-  EXPECT_EQ(config->password_lenght, std::stoi(FILE_OPTIONS[PASSWORD_LEN]));
-  EXPECT_EQ(config->user.home, FILE_OPTIONS[HOME]);
-  EXPECT_EQ(config->quota.block_hard_limit, 
-            std::stoi(FILE_OPTIONS[BLOCKS_HARD_LIMIT]));
+  EXPECT_EQ(config->password_lenght, default_password_len);
+  EXPECT_EQ(config->user.home, default_home);
+  EXPECT_EQ(config->quota.block_hard_limit, default_blocks_hard_limit);
 }
 
 TEST_F(FileParserTest, ParseFileWithValidOptionsAndValues) {

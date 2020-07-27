@@ -21,9 +21,10 @@ const char BLOCKS_TIME[] = "block_time";
 const char INODES_TIME[] = "inodes_time";
 const char PATH_QUOTA[] = "path_quota";
 
-namespace {
+namespace xlstousers {
+namespace config_parser {
 
-std::map<std::string, std::string> FILE_OPTIONS {
+std::map<std::string, std::string> file_options {
     { std::string(COLUMNS), "imie,nazwisko" },
     { std::string(PASSWORD_LEN), "8" },
     { std::string(MIN_UID), "1001" },
@@ -43,6 +44,7 @@ std::map<std::string, std::string> FILE_OPTIONS {
     { std::string(PATH_QUOTA), "/home" },
 };
 
-}
+}  // namespace config_parser
+}  // namespace xlstousers
 
 #endif  // INCLUDE_CONFIG_PARSER_FILE_OPTIONS_H_
