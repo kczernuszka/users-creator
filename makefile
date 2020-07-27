@@ -34,6 +34,9 @@ build/option_value_parser.o: $(CONFIG_PARSER)/option_value_parser.cpp $(CONFIG_P
 build/main.o: main.cpp
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) main.cpp -c -o build/main.o
 
+clean:
+	rm build/*.o
+
 
 #*****************************************************************************
 #tests
