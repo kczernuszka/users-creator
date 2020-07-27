@@ -1,5 +1,5 @@
-#ifndef XLSTOUSERS_CONFIGPARSER_FILEPARSER_H
-#define XLSTOUSERS_CONFIGPARSER_FILEPARSER_H
+#ifndef SRC_CONFIG_PARSER_FILE_PARSER_H_
+#define SRC_CONFIG_PARSER_FILE_PARSER_H_
 
 #include <iostream>
 
@@ -28,4 +28,4 @@ class FileParser {
 
 }}  // namespace xlstousers::config_parser
 
-#endif  // XLSTOUSERS_CONFIGPARSER_FILEPARSER_H
+#endif  // SRC_CONFIG_PARSER_FILE_PARSER_H_

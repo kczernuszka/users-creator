@@ -1,5 +1,5 @@
-#ifndef XLSTOUSERS_CONFIGPARSER_CONFIGPARSER_H
-#define XLSTOUSERS_CONFIGPARSER_CONFIGPARSER_H
+#ifndef SRC_CONFIG_PARSER_CONFIG_PARSER_H_
+#define SRC_CONFIG_PARSER_CONFIG_PARSER_H_
 
 #include "file_parser.h"
 #include "cmd_parser.h"
@@ -21,4 +21,4 @@ class ConfigParser {
 
 }}  // namespace xlstousers::config_parser
 
-#endif  // XLSTOUSERS_CONFIGPARSER_CONFIGPARSER_H
+#endif  // SRC_CONFIG_PARSER_CONFIG_PARSER_H_

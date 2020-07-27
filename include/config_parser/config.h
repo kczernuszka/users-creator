@@ -1,5 +1,5 @@
-#ifndef XLSTOUSERS_CONFIGPARSER_CONFIG_H
-#define XLSTOUSERS_CONFIGPARSER_CONFIG_H
+#ifndef INCLUDE_CONFIG_PARSER_CONFIG_H_
+#define INCLUDE_CONFIG_PARSER_CONFIG_H_
 
 #include <map>
 #include <vector>
@@ -50,4 +50,4 @@ struct Config {
 
 }}  // namespace xlstousers::config_parser
 
-#endif  // XLSTOUSERS_CONFIGPARSER_CONFIG_H
+#endif  // INCLUDE_CONFIG_PARSER_CONFIG_H_

@@ -1,5 +1,5 @@
-#ifndef XLSTOUSERS_CONFIGPARSER_OPTIONVALUEPARSER_H
-#define XLSTOUSERS_CONFIGPARSER_OPTIONVALUEPARSER_H
+#ifndef SRC_CONFIG_PARSER_OPTION_VALUE_PARSER_H_
+#define SRC_CONFIG_PARSER_OPTION_VALUE_PARSER_H_
 
 #include <fstream>
 
@@ -15,4 +15,4 @@ std::vector<std::string> valueToVector(std::string value);
 
 }}  // namespace xlstousers::config_parser
 
-#endif  // XLSTOUSERS_CONFIGPARSER_OPTIONVALUEPARSER_H
+#endif  // SRC_CONFIG_PARSER_OPTION_VALUE_PARSER_H_

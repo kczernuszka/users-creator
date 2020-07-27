@@ -1,5 +1,5 @@
-#ifndef XLSTOUSERS_CONFIGPARSER_CMDPARSER_H
-#define XLSTOUSERS_CONFIGPARSER_CMDPARSER_H
+#ifndef SRC_CONFIG_PARSER_CMD_PARSER_H_
+#define SRC_CONFIG_PARSER_CMD_PARSER_H_
 
 #include <memory>
 
@@ -28,4 +28,4 @@ class CmdParser {
 
 }}  // namespace xlstousers::config_parser
 
-#endif  // XLSTOUSERS_CONFIGPARSER_CMDPARSER_H
+#endif  // SRC_CONFIG_PARSER_CMD_PARSER_H_
