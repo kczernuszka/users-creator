@@ -1,8 +1,8 @@
 #ifndef INCLUDE_CONFIG_PARSER_FILE_OPTIONS_H_
 #define INCLUDE_CONFIG_PARSER_FILE_OPTIONS_H_
 
-#include <map>
 #include <string>
+#include <map>
 
 const char COLUMNS[] = "columns_headers";
 const char PASSWORD_LEN[] = "password_length";
@@ -25,7 +25,7 @@ const char PATH_QUOTA[] = "path_quota";
 namespace xlstousers {
 namespace config_parser {
 
-std::map<std::string, std::string> file_options {
+const std::map<std::string, std::string> file_options {
     { std::string(COLUMNS), "imie,nazwisko" },
     { std::string(PASSWORD_LEN), "8" },
     { std::string(MIN_UID), "1001" },
