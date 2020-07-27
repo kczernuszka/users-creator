@@ -10,7 +10,7 @@ CmdParser::CmdParser(int argc, char **argv) : argc{argc}, argv{argv} {}
 std::unique_ptr<ProgramSettings> CmdParser::getConfig() {
   auto desc = setOptions();
   auto vm = getVariablesMap(desc);
-  if(!vm.empty())
+  if (!vm.empty())
     return getValues(vm);
   else
     return nullptr;
@@ -22,7 +22,7 @@ po::options_description CmdParser::setOptions() {
       (createOptionName(CONFIG_FILE, CONFIG_FILE_SHORT).c_str(),
        po::value<std::string>()->default_value(DEFAULT_CONFIG_PATH),
        "path to config file")
-      (createOptionName(INTERACTIVE, INTERACTIVE_SHORT).c_str(), 
+      (createOptionName(INTERACTIVE, INTERACTIVE_SHORT).c_str(),
        "interactive mode")
       (createOptionName(TEST_MODE, TEST_MODE_SHORT).c_str(), "test mode")
       (createOptionName(QUOTA, QUOTA_SHORT).c_str(), "create quota for users")

@@ -6,7 +6,7 @@ namespace config_parser {
 std::unique_ptr<Config> FileParser::getConfig(std::string file) {
   auto desc = setOptions(file_options);
   auto vm = getVariablesMap(desc, file);
-  if(!vm.empty())
+  if (!vm.empty())
     return getValues(vm);
   else
     return nullptr;

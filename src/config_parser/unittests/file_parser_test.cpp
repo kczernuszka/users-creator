@@ -21,7 +21,8 @@ class FileParserTest : public ::testing::Test {
 TEST_F(FileParserTest, DefaultValuesAreSet) {
   const int default_password_len = std::stoi(
       xlstousers::config_parser::file_options[PASSWORD_LEN]);
-  const std::string default_home = xlstousers::config_parser::file_options[HOME];
+  const std::string default_home =
+      xlstousers::config_parser::file_options[HOME];
   const int default_blocks_hard_limit = std::stoi(
       xlstousers::config_parser::file_options[BLOCKS_HARD_LIMIT]);
   auto config = parser.getConfig("");
@@ -34,7 +35,7 @@ TEST_F(FileParserTest, DefaultValuesAreSet) {
 
 TEST_F(FileParserTest, ParseFileWithValidOptionsAndValues) {
   std::ofstream file{"config1.txt-test"};
-  file << USER_GID << "=10" << std::endl << PASSWORD_LEN << "=12" 
+  file << USER_GID << "=10" << std::endl << PASSWORD_LEN << "=12"
        << std::endl << HOME << "=/home";
   file.close();
 
@@ -48,7 +49,7 @@ TEST_F(FileParserTest, ParseFileWithValidOptionsAndValues) {
 
 TEST_F(FileParserTest, ParseFileWithIncorrectOption) {
   std::ofstream file{"config2.txt-test"};
-  file << MIN_UID << "=2100" << std::endl << "wrongParameter=12" << std::endl 
+  file << MIN_UID << "=2100" << std::endl << "wrongParameter=12" << std::endl
        << MAX_UID << "=7777";
   file.close();
 

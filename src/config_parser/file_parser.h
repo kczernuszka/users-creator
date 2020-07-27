@@ -20,7 +20,7 @@ class FileParser {
   std::unique_ptr<Config> getConfig(std::string file);
 
  private:
-  po::variables_map getVariablesMap(po::options_description desc, 
+  po::variables_map getVariablesMap(po::options_description desc,
                                     std::string file);
   po::options_description setOptions(std::map<std::string, std::string> values);
   std::unique_ptr<Config> getValues(po::variables_map vm);

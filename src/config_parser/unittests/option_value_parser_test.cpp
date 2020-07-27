@@ -10,7 +10,7 @@ TEST(OptionValueParserTest, MultiValuesToVector) {
 
   auto vectorStrings = valueToVector(value);
 
-  if(vectorStrings.size() != 3) FAIL();
+  if (vectorStrings.size() != 3) FAIL();
   EXPECT_EQ(vectorStrings[0], "name");
   EXPECT_EQ(vectorStrings[1], "surname");
   EXPECT_EQ(vectorStrings[2], "workplace");

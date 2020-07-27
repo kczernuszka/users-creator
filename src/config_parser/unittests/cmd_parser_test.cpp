@@ -43,7 +43,7 @@ TEST_F(CmdParserTest, ParseShortNameCmdParameters) {
   if (!settings) FAIL();
   EXPECT_TRUE(settings->interactive_mode);
   EXPECT_TRUE(settings->test_mode);
-  EXPECT_FALSE(settings->quota);  
+  EXPECT_FALSE(settings->quota);
 }
 
 TEST_F(CmdParserTest, ParseFullNameCmdParameters) {
@@ -58,7 +58,7 @@ TEST_F(CmdParserTest, ParseFullNameCmdParameters) {
   if (!settings) FAIL();
   EXPECT_TRUE(settings->interactive_mode);
   EXPECT_TRUE(settings->test_mode);
-  EXPECT_FALSE(settings->quota); 
+  EXPECT_FALSE(settings->quota);
 }
 
 TEST_F(CmdParserTest, ParseUnknownCmdParameter) {
