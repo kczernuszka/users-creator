@@ -1,6 +1,7 @@
 #ifndef INCLUDE_CONFIG_PARSER_FILE_OPTIONS_H_
 #define INCLUDE_CONFIG_PARSER_FILE_OPTIONS_H_
 
+#include <map>
 #include <string>
 
 const char COLUMNS[] = "columns_headers";
