@@ -13,4 +13,9 @@ const char INTERACTIVE_SHORT[] = "i";
 const char TEST_MODE_SHORT[] = "t";
 const char QUOTA_SHORT[] = "q";
 
+const char DEFAULT_CONFIG_PATH[] = "/etc/xlstousers/";
+const bool DEFAULT_INTERACTIVE = false;
+const bool DEFAULT_TEST = false;
+const bool DEFAULT_QUOTA = false;
+
 #endif  // XLSTOUSERS_CONFIGPARSER_CMDOPTIONS_H

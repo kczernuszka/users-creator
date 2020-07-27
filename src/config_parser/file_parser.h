@@ -5,7 +5,7 @@
 
 #include <boost/program_options.hpp>
 
-#include <config_parser/file_options_default_values.h>
+#include <config_parser/file_options.h>
 #include <config_parser/config.h>
 
 #include "option_value_parser.h"

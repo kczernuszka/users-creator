@@ -6,7 +6,7 @@
 #include <boost/program_options.hpp>
 
 #include <config_parser/config.h>
-#include <config_parser/cmd_options_default_values.h>
+#include <config_parser/cmd_options.h>
 
 namespace xlstousers { namespace config_parser
 {
