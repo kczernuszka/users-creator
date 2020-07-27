@@ -1,8 +1,10 @@
 #ifndef SRC_CONFIG_PARSER_FILE_PARSER_H_
 #define SRC_CONFIG_PARSER_FILE_PARSER_H_
 
+#include <map>
+#include <memory>
 #include <iostream>
-
+#include <string>
 #include <boost/program_options.hpp>
 
 #include <config_parser/file_options.h>

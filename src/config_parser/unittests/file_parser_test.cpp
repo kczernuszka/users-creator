@@ -1,8 +1,7 @@
 #include <gtest/gtest.h>
-
+#include <stdio.h>
 #include <fstream>
 #include <iostream>
-#include <stdio.h>
 
 #include "../file_parser.h"
 

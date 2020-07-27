@@ -1,6 +1,9 @@
 #ifndef SRC_CONFIG_PARSER_CONFIG_PARSER_H_
 #define SRC_CONFIG_PARSER_CONFIG_PARSER_H_
 
+#include <string>
+#include <memory>
+
 #include "file_parser.h"
 #include "cmd_parser.h"
 

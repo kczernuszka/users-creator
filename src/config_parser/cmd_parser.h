@@ -2,7 +2,7 @@
 #define SRC_CONFIG_PARSER_CMD_PARSER_H_
 
 #include <memory>
-
+#include <string>
 #include <boost/program_options.hpp>
 
 #include <config_parser/config.h>
