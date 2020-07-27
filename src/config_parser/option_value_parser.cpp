@@ -1,7 +1,7 @@
 #include "option_value_parser.h"
 
-namespace xlstousers { namespace config_parser 
-{
+namespace xlstousers {
+namespace config_parser {
 
 std::vector<std::string> valueToVector(std::string value) {
   std::vector<std::string> vectorStrings;
@@ -14,4 +14,5 @@ std::vector<std::string> valueToVector(std::string value) {
   return vectorStrings;
 }
 
-}}  // namespace xlstousers::config_parser
+}  // namespace config_parser
+}  // namespace xlstousers

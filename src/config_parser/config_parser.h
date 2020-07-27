@@ -4,8 +4,8 @@
 #include "file_parser.h"
 #include "cmd_parser.h"
 
-namespace xlstousers { namespace config_parser 
-{
+namespace xlstousers {
+namespace config_parser {
 
 class ConfigParser {
  public:
@@ -19,6 +19,7 @@ class ConfigParser {
   std::unique_ptr<CmdParser> cmd_parser;
 };
 
-}}  // namespace xlstousers::config_parser
+}  // namespace config_parser
+}  // namespace xlstousers
 
 #endif  // SRC_CONFIG_PARSER_CONFIG_PARSER_H_

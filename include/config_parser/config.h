@@ -5,8 +5,8 @@
 #include <vector>
 #include <string>
 
-namespace xlstousers { namespace config_parser
-{
+namespace xlstousers {
+namespace config_parser {
 
 struct UidsRange {
   int min_uid;
@@ -48,6 +48,7 @@ struct Config {
   Quota quota;
 };
 
-}}  // namespace xlstousers::config_parser
+}  // namespace config_parser
+}  // namespace xlstousers
 
 #endif  // INCLUDE_CONFIG_PARSER_CONFIG_H_

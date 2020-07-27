@@ -1,7 +1,7 @@
 #include "file_parser.h"
 
-namespace xlstousers { namespace config_parser
-{
+namespace xlstousers {
+namespace config_parser {
 
 std::unique_ptr<Config> FileParser::getConfig(std::string file) {
   auto desc = setOptions(FILE_OPTIONS);
@@ -75,4 +75,5 @@ std::unique_ptr<Config> FileParser::getValues(po::variables_map vm) {
   return config;
 }
 
-}}  // namespace xlstousers::config_parser
+}  // namespace config_parser
+}  // namespace xlstousers

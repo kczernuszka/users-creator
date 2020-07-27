@@ -1,7 +1,7 @@
 #include "config_parser.h"
 
-namespace xlstousers { namespace config_parser 
-{
+namespace xlstousers {
+namespace config_parser {
 
 ConfigParser::ConfigParser(CmdParser *cmd_parser, FileParser *file_parser)
    : file_parser{file_parser}, cmd_parser{cmd_parser} {}
@@ -14,4 +14,5 @@ std::unique_ptr<ProgramSettings> ConfigParser::getConfigFromCmd() {
   return cmd_parser->getConfig();
 }
 
-}}  // namespace xlstousers::config_parser
+}  // namespace config_parser
+}  // namespace xlstousers
