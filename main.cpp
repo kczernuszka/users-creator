@@ -19,9 +19,7 @@
 #include "src/config_parser/cmd_parser.h"
 
 int main(int argc, char *argv[]) {
-  xlstousers::config_parser::ConfigParser config_parser{
-      new xlstousers::config_parser::CmdParser{argc, argv},
-      new xlstousers::config_parser::FileParser};
+  xlstousers::config_parser::ConfigParser config_parser{argc, argv};
   auto program_settings = config_parser.getConfigFromCmd();
   auto config = config_parser.getConfigFromFile(program_settings->config_file);
   return 0;

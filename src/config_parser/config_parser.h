@@ -28,7 +28,7 @@ namespace config_parser {
 
 class ConfigParser {
  public:
-  ConfigParser(CmdParser *cmd_parser, FileParser *file_parser);
+  ConfigParser(int argc, char **argv);
   ~ConfigParser() = default;
   std::unique_ptr<Config> getConfigFromFile(std::string file);
   std::unique_ptr<ProgramSettings> getConfigFromCmd();

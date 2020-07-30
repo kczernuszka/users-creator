@@ -19,8 +19,8 @@
 namespace xlstousers {
 namespace config_parser {
 
-ConfigParser::ConfigParser(CmdParser *cmd_parser, FileParser *file_parser)
-    : file_parser{file_parser}, cmd_parser{cmd_parser} {}
+ConfigParser::ConfigParser(int argc, char **argv) :
+    file_parser{new FileParser}, cmd_parser{new CmdParser{argc, argv}} {}
 
 std::unique_ptr<Config> ConfigParser::getConfigFromFile(std::string file) {
   return file_parser->getConfig(file);
