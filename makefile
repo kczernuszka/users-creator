@@ -1,12 +1,12 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Iinclude/ -g
+CXXFLAGS = -std=c++17 -Iinclude/ -Isrc/ -g
 LDFLAGS = -L/usr/lib/x86_64-linux-gnu/
 LDLIBS = -lboost_program_options
 OBJ = build/file_parser.o build/cmd_parser.o build/option_value_parser.o build/config_parser.o build/users_reader.o build/xlsx_column_reader.o build/column_reader_factory.o
 
 TESTS_OBJ = $(OBJ) build/unittests.o build/file_parser_test.o build/cmd_parser_test.o build/option_value_parser_test.o build/xlsx_reader_test.o
 TESTS_LDFLAGS = -lgtest -lgtest_main -pthread
-TEST_FLAGS = -Iinclude/ -g
+TEST_FLAGS = -Iinclude/ -Isrc/ -g
 
 CONFIG_PARSER = src/config_parser
 USERS_READER = src/users_reader
@@ -19,10 +19,10 @@ bin/xlstousers: build/main.o $(OBJ)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS) -lOpenXLSX-shared
 
 bin/tests: $(TESTS_OBJ)
-	$(CXX) $(TEST_FLAGS) -Isrc/ -o $@ $^ $(TESTS_LDFLAGS) $(LDLIBS) -lOpenXLSX-shared
+	$(CXX) $(TEST_FLAGS) -o $@ $^ $(TESTS_LDFLAGS) $(LDLIBS) -lOpenXLSX-shared
 
 build/config_parser.o: $(CONFIG_PARSER)/config_parser.cpp include/config_parser/config_parser.h
-	$(CXX) $(CXXFLAGS) -Isrc/ $(LDFLAGS) $(CONFIG_PARSER)/config_parser.cpp -c -o build/config_parser.o
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(CONFIG_PARSER)/config_parser.cpp -c -o build/config_parser.o
 
 build/file_parser.o: $(CONFIG_PARSER)/file_parser.cpp $(CONFIG_PARSER)/file_parser.h
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(CONFIG_PARSER)/file_parser.cpp -c -o build/file_parser.o $(LDLIBS)
@@ -43,7 +43,7 @@ build/column_reader_factory.o: $(USERS_READER)/column_reader_factory.cpp $(USERS
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(USERS_READER)/column_reader_factory.cpp -c -o build/column_reader_factory.o -lOpenXLSX-shared
 
 build/main.o: main.cpp
-	$(CXX) $(CXXFLAGS) -Isrc/ $(LDFLAGS) main.cpp -c -o build/main.o
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) main.cpp -c -o build/main.o
 
 clean:
 	rm build/*.o
@@ -53,10 +53,10 @@ clean:
 #tests
 
 build/file_parser_test.o: $(CONFIG_PARSER_TESTS)/file_parser_test.cpp
-	$(CXX) $(TEST_FLAGS) -Isrc/ $(CONFIG_PARSER_TESTS)/file_parser_test.cpp -c -o build/file_parser_test.o $(TESTS_LDFLAGS) $(LDLIBS)
+	$(CXX) $(TEST_FLAGS) $(CONFIG_PARSER_TESTS)/file_parser_test.cpp -c -o build/file_parser_test.o $(TESTS_LDFLAGS) $(LDLIBS)
 
 build/cmd_parser_test.o: $(CONFIG_PARSER_TESTS)/cmd_parser_test.cpp
-	$(CXX) $(TEST_FLAGS) -Isrc/ $(CONFIG_PARSER_TESTS)/cmd_parser_test.cpp -c -o build/cmd_parser_test.o $(TESTS_LDFLAGS) $(LDLIBS)
+	$(CXX) $(TEST_FLAGS) $(CONFIG_PARSER_TESTS)/cmd_parser_test.cpp -c -o build/cmd_parser_test.o $(TESTS_LDFLAGS) $(LDLIBS)
 
 build/option_value_parser_test.o: $(CONFIG_PARSER_TESTS)/option_value_parser_test.cpp
 	$(CXX) $(TEST_FLAGS) $(CONFIG_PARSER_TESTS)/option_value_parser_test.cpp -c -o build/option_value_parser_test.o $(TESTS_LDFLAGS)

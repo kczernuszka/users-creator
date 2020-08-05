@@ -26,8 +26,8 @@
 
 #include <config_parser/config.h>
 
-#include "option_value_parser.h"
-#include "file_options.h"
+#include "config_parser/option_value_parser.h"
+#include "config_parser/file_options.h"
 
 namespace xlstousers {
 namespace config_parser {

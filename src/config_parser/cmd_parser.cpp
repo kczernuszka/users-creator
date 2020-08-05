@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>
 //
 
-#include "cmd_parser.h"
+#include "config_parser/cmd_parser.h"
 
 namespace xlstousers {
 namespace config_parser {

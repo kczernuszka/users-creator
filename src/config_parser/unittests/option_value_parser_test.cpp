@@ -16,7 +16,7 @@
 
 #include <gtest/gtest.h>
 
-#include "../option_value_parser.h"
+#include "config_parser/option_value_parser.h"
 
 TEST(OptionValueParserTest, MultiValuesToVector) {
   std::string value = "name" + std::string(VALUES_DELIMITER) + "surname" +

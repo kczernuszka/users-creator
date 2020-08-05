@@ -15,7 +15,7 @@
 //
 
 #include "users_reader/users_reader.h"
-#include "column_reader_factory.h"
+#include "users_reader/column_reader_factory.h"
 
 namespace xlstousers {
 namespace users_reader {
