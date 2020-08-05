@@ -15,12 +15,14 @@
 //
 
 #include "src/config_parser/config_parser.h"
-#include "src/config_parser/file_parser.h"
-#include "src/config_parser/cmd_parser.h"
+#include "users_reader/users_reader.h"
 
 int main(int argc, char *argv[]) {
   xlstousers::config_parser::ConfigParser config_parser{argc, argv};
   auto program_settings = config_parser.getConfigFromCmd();
   auto config = config_parser.getConfigFromFile(program_settings->config_file);
+  xlstousers::users_reader::UsersReader
+      users_reader{"test.xlsx"};
+  auto columns_values = users_reader.getColumnsValues(config->columns);
   return 0;
 }
