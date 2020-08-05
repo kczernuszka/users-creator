@@ -21,7 +21,7 @@
 #include <string>
 
 #include "users_reader/i_column_reader.h"
-#include "users_reader/xlsx_column_reader.h"
+#include "xlsx_column_reader.h"
 
 namespace xlstousers {
 namespace users_reader {

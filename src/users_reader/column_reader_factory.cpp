@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>
 //
 
-#include "users_reader/column_reader_factory.h"
+#include "column_reader_factory.h"
 
 namespace xlstousers {
 namespace users_reader {

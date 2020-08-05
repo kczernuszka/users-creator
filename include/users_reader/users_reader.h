@@ -25,7 +25,6 @@
 #include <memory>
 
 #include "users_reader/i_column_reader.h"
-#include "users_reader/column_reader_factory.h"
 
 namespace xlstousers {
 namespace users_reader {

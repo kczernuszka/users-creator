@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>
 //
 
-#include "users_reader/xlsx_column_reader.h"
+#include "xlsx_column_reader.h"
 
 namespace xlstousers {
 namespace users_reader {
