@@ -19,10 +19,11 @@
 
 #include <memory>
 #include <string>
+
 #include <boost/program_options.hpp>
 
 #include <config_parser/config.h>
-#include <config_parser/cmd_options.h>
+#include "cmd_options.h"
 
 namespace xlstousers {
 namespace config_parser {
