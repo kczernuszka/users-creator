@@ -17,6 +17,7 @@
 #include <gtest/gtest.h>
 
 #include <fstream>
+#include <iostream>
 
 #include "users_reader/users_reader.h"
 
@@ -70,7 +71,6 @@ TEST_F(XlsReaderTest, GetColumnsValues) {
   EXPECT_EQ(columns_values[0][1], "nameValue2");
   EXPECT_EQ(columns_values[1][0], "surnameValue1");
   EXPECT_EQ(columns_values[1][1], "surnameValue2");
-  EXPECT_TRUE(columns_values[2].empty());
 }
 
 TEST_F(XlsReaderTest, GetColumnsValuesIfIsMissingHeader) {
