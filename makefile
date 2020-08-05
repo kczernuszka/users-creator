@@ -21,8 +21,8 @@ bin/xlstousers: build/main.o $(OBJ)
 bin/tests: $(TESTS_OBJ)
 	$(CXX) $(TEST_FLAGS) -o $@ $^ $(TESTS_LDFLAGS) $(LDLIBS) -lOpenXLSX-shared
 
-build/config_parser.o: $(CONFIG_PARSER)/config_parser.cpp $(CONFIG_PARSER)/config_parser.h
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(CONFIG_PARSER)/config_parser.cpp -c -o build/config_parser.o
+build/config_parser.o: $(CONFIG_PARSER)/config_parser.cpp include/config_parser/config_parser.h
+	$(CXX) $(CXXFLAGS) -Isrc/ $(LDFLAGS) $(CONFIG_PARSER)/config_parser.cpp -c -o build/config_parser.o
 
 build/file_parser.o: $(CONFIG_PARSER)/file_parser.cpp $(CONFIG_PARSER)/file_parser.h
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(CONFIG_PARSER)/file_parser.cpp -c -o build/file_parser.o $(LDLIBS)
@@ -43,7 +43,7 @@ build/column_reader_factory.o: $(USERS_READER)/column_reader_factory.cpp $(USERS
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(USERS_READER)/column_reader_factory.cpp -c -o build/column_reader_factory.o -lOpenXLSX-shared
 
 build/main.o: main.cpp
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) main.cpp -c -o build/main.o
+	$(CXX) $(CXXFLAGS) -Isrc/ $(LDFLAGS) main.cpp -c -o build/main.o
 
 clean:
 	rm build/*.o

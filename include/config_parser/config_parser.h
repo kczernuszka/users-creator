@@ -20,8 +20,8 @@
 #include <string>
 #include <memory>
 
-#include "file_parser.h"
-#include "cmd_parser.h"
+#include "config_parser/file_parser.h"
+#include "config_parser/cmd_parser.h"
 
 namespace xlstousers {
 namespace config_parser {

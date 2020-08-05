@@ -14,7 +14,8 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>
 //
 
-#include "config_parser.h"
+#include "config_parser/config_parser.h"
+#include "config_parser/config.h"
 
 namespace xlstousers {
 namespace config_parser {

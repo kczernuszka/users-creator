@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>
 //
 
-#include "src/config_parser/config_parser.h"
+#include "config_parser/config_parser.h"
 #include "users_reader/users_reader.h"
 
 int main(int argc, char *argv[]) {
