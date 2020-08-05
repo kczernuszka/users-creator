@@ -19,11 +19,11 @@
 #include <fstream>
 #include <iostream>
 
-#include "../file_parser.h"
+#include "config_parser/config_parser.h"
 
 class FileParserTest : public ::testing::Test {
  protected:
-  xlstousers::config_parser::FileParser parser;
+  xlstousers::config_parser::ConfigParser file_parser{0, {}};
 
   ~FileParserTest() {
     remove("config1.txt-test");
@@ -40,7 +40,7 @@ TEST_F(FileParserTest, DefaultValuesAreSet) {
   const std::string default_home = def_options_val[HOME];
   const int default_blocks_hard_limit = std::stoi(
       def_options_val[BLOCKS_HARD_LIMIT]);
-  auto config = parser.getConfig("");
+  auto config = file_parser.getConfigFromFile("");
 
   if (!config) FAIL();
   EXPECT_EQ(config->password_lenght, default_password_len);
@@ -54,7 +54,7 @@ TEST_F(FileParserTest, ParseFileWithValidOptionsAndValues) {
        << std::endl << HOME << "=/home";
   file.close();
 
-  auto config = parser.getConfig("config1.txt-test");
+  auto config = file_parser.getConfigFromFile("config1.txt-test");
 
   if (!config) FAIL();
   EXPECT_EQ(config->user.gid, 10);
@@ -68,7 +68,7 @@ TEST_F(FileParserTest, ParseFileWithIncorrectOption) {
        << MAX_UID << "=7777";
   file.close();
 
-  auto config = parser.getConfig("config2.txt-test");
+  auto config = file_parser.getConfigFromFile("config2.txt-test");
 
   EXPECT_FALSE(config);
 }
@@ -78,13 +78,13 @@ TEST_F(FileParserTest, ParseFileWithWrongFormat) {
   file << "arararararararar,rarara. arararara" << std::endl;
   file.close();
 
-  auto config = parser.getConfig("config4.txt-test");
+  auto config = file_parser.getConfigFromFile("config4.txt-test");
 
   EXPECT_FALSE(config);
 }
 
 TEST_F(FileParserTest, HandleNonExistentFile) {
-  auto config = parser.getConfig("NonExistentFile");
+  auto config = file_parser.getConfigFromFile("NonExistentFile");
 
   EXPECT_TRUE(config);
 }
@@ -94,7 +94,7 @@ TEST_F(FileParserTest, ParseFileWithIncorrectValue) {
   file << "password_length=wrongValue";
   file.close();
 
-  auto config = parser.getConfig("config3.txt-test");
+  auto config = file_parser.getConfigFromFile("config3.txt-test");
 
   EXPECT_FALSE(config);
 }

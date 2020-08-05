@@ -19,7 +19,7 @@ bin/xlstousers: build/main.o $(OBJ)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS) -lOpenXLSX-shared
 
 bin/tests: $(TESTS_OBJ)
-	$(CXX) $(TEST_FLAGS) -o $@ $^ $(TESTS_LDFLAGS) $(LDLIBS) -lOpenXLSX-shared
+	$(CXX) $(TEST_FLAGS) -Isrc/ -o $@ $^ $(TESTS_LDFLAGS) $(LDLIBS) -lOpenXLSX-shared
 
 build/config_parser.o: $(CONFIG_PARSER)/config_parser.cpp include/config_parser/config_parser.h
 	$(CXX) $(CXXFLAGS) -Isrc/ $(LDFLAGS) $(CONFIG_PARSER)/config_parser.cpp -c -o build/config_parser.o
@@ -53,10 +53,10 @@ clean:
 #tests
 
 build/file_parser_test.o: $(CONFIG_PARSER_TESTS)/file_parser_test.cpp
-	$(CXX) $(TEST_FLAGS) $(CONFIG_PARSER_TESTS)/file_parser_test.cpp -c -o build/file_parser_test.o $(TESTS_LDFLAGS) $(LDLIBS)
+	$(CXX) $(TEST_FLAGS) -Isrc/ $(CONFIG_PARSER_TESTS)/file_parser_test.cpp -c -o build/file_parser_test.o $(TESTS_LDFLAGS) $(LDLIBS)
 
 build/cmd_parser_test.o: $(CONFIG_PARSER_TESTS)/cmd_parser_test.cpp
-	$(CXX) $(TEST_FLAGS) $(CONFIG_PARSER_TESTS)/cmd_parser_test.cpp -c -o build/cmd_parser_test.o $(TESTS_LDFLAGS) $(LDLIBS)
+	$(CXX) $(TEST_FLAGS) -Isrc/ $(CONFIG_PARSER_TESTS)/cmd_parser_test.cpp -c -o build/cmd_parser_test.o $(TESTS_LDFLAGS) $(LDLIBS)
 
 build/option_value_parser_test.o: $(CONFIG_PARSER_TESTS)/option_value_parser_test.cpp
 	$(CXX) $(TEST_FLAGS) $(CONFIG_PARSER_TESTS)/option_value_parser_test.cpp -c -o build/option_value_parser_test.o $(TESTS_LDFLAGS)
