@@ -32,7 +32,7 @@ class XlsxColumnReader : public IColumnReader {
  public:
   explicit XlsxColumnReader(std::string file);
   ~XlsxColumnReader();
-  std::vector<std::string> getColumn(std::string header);
+  std::vector<std::string> getColumn(std::string header) override;
  private:
   std::unique_ptr<OpenXLSX::XLWorksheet> worksheet;
   OpenXLSX::XLDocument document;
