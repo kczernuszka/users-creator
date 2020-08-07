@@ -22,7 +22,7 @@ namespace users_reader {
 std::unique_ptr<IColumnReader> ColumnReader::getColumnReader(std::string file) {
   std::string extension = getFileExtension(file);
   if (extension == "xlsx")
-    return std::make_unique<XlsxColumnReader>(file);
+    return std::make_unique<XlsxColumnReader>();
   else
     return nullptr;
 }

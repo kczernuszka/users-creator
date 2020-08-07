@@ -21,17 +21,22 @@ namespace xlstousers {
 namespace users_reader {
 
 UsersReader::UsersReader(std::string file) :
-    column_reader{ColumnReader::getColumnReader(file)} {}
+    column_reader{ColumnReader::getColumnReader(file)}, file{file} {}
+
+UsersReader::~UsersReader() {
+  column_reader->closeFile();
+}
 
 ColumnsValues UsersReader::getColumnsValues(
     const std::vector<std::string> &headers) {
   ColumnsValues columns_values;
-  for (auto &header : headers)
-    columns_values.push_back(column_reader->getColumn(header));
-  if (columnsAreTheSameLength(columns_values))
-    return columns_values;
-  else
-    return ColumnsValues();
+  if (column_reader->openFile(file)) {
+    for (auto &header : headers)
+      columns_values.push_back(column_reader->getColumn(header));
+    if (columnsAreTheSameLength(columns_values))
+      return columns_values;
+  }
+  return ColumnsValues();
 }
 
 bool UsersReader::columnsAreTheSameLength(ColumnsValues columns_values) {

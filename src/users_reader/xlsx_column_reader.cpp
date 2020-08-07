@@ -15,18 +15,29 @@
 //
 
 #include "users_reader/xlsx_column_reader.h"
+#include <iostream>
 
 namespace xlstousers {
 namespace users_reader {
 
-XlsxColumnReader::XlsxColumnReader(std::string file) {
-  document.OpenDocument(file);
-  auto name_worksheet = document.Workbook().Sheet(1).Name();
-  worksheet = std::make_unique<OpenXLSX::XLWorksheet>(
-      document.Workbook().Worksheet(name_worksheet));
+XlsxColumnReader::~XlsxColumnReader() {
+  document.CloseDocument();
 }
 
-XlsxColumnReader::~XlsxColumnReader() {
+bool XlsxColumnReader::openFile(std::string file) {
+  try {
+    document.OpenDocument(file);
+    auto name_worksheet = document.Workbook().Sheet(1).Name();
+    worksheet = std::make_unique<OpenXLSX::XLWorksheet>(
+        document.Workbook().Worksheet(name_worksheet));
+  } catch(std::exception error) {
+    return false;
+  }
+  return true;
+}
+
+void XlsxColumnReader::closeFile() {
+  worksheet.release();
   document.CloseDocument();
 }
 

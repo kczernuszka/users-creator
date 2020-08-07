@@ -34,10 +34,12 @@ using ColumnsValues = std::vector<std::vector<std::string> >;
 class UsersReader {
  public:
   explicit UsersReader(std::string file);
+  ~UsersReader();
   ColumnsValues getColumnsValues(const std::vector<std::string> &headers);
 
  private:
   std::unique_ptr<IColumnReader> column_reader;
+  std::string file;
 
   bool columnsAreTheSameLength(ColumnsValues columns_values);
 };

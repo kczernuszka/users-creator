@@ -66,7 +66,7 @@ TEST_F(XlsReaderTest, GetColumnsValues) {
 
   auto columns_values = xls_reader.getColumnsValues(headers);
 
-  if(columns_values.empty()) FAIL();
+  if (columns_values.empty()) FAIL();
   EXPECT_EQ(columns_values[0][0], "nameValue1");
   EXPECT_EQ(columns_values[0][1], "nameValue2");
   EXPECT_EQ(columns_values[1][0], "surnameValue1");
@@ -89,6 +89,15 @@ TEST_F(XlsReaderTest, GetValuesFromNotEqualLengthColumns) {
   clearCell("test3.xlsx", "B3");
   auto xls_reader = xlstousers::users_reader::
       UsersReader{"test3.xlsx"};
+
+  auto columns_values = xls_reader.getColumnsValues(headers);
+
+  EXPECT_TRUE(columns_values.empty());
+}
+
+TEST_F(XlsReaderTest, HandleNotExistingFile) {
+  auto xls_reader = xlstousers::users_reader::
+      UsersReader{"notExistingFile.xlsx"};
 
   auto columns_values = xls_reader.getColumnsValues(headers);
 

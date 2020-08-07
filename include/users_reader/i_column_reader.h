@@ -25,6 +25,8 @@ namespace users_reader {
 
 class IColumnReader {
  public:
+  virtual bool openFile(std::string file) = 0;
+  virtual void closeFile() = 0;
   virtual std::vector<std::string> getColumn(std::string header) = 0;
 };
 

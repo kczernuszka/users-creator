@@ -30,8 +30,10 @@ namespace users_reader {
 
 class XlsxColumnReader : public IColumnReader {
  public:
-  explicit XlsxColumnReader(std::string file);
+  XlsxColumnReader() = default;
   ~XlsxColumnReader();
+  bool openFile(std::string file) override;
+  void closeFile() override;
   std::vector<std::string> getColumn(std::string header) override;
  private:
   std::unique_ptr<OpenXLSX::XLWorksheet> worksheet;
