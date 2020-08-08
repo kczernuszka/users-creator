@@ -25,7 +25,7 @@
 #include <config_parser/config.h>
 #include "config_parser/cmd_options.h"
 
-namespace xlstousers {
+namespace users_creator {
 namespace config_parser {
 
 namespace po = boost::program_options;
@@ -45,6 +45,6 @@ class CmdParser {
 };
 
 }  // namespace config_parser
-}  // namespace xlstousers
+}  // namespace users_creator
 
 #endif  // SRC_CONFIG_PARSER_CMD_PARSER_H_

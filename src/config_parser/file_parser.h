@@ -29,7 +29,7 @@
 #include "config_parser/option_value_parser.h"
 #include "config_parser/file_options.h"
 
-namespace xlstousers {
+namespace users_creator {
 namespace config_parser {
 
 namespace po = boost::program_options;
@@ -46,6 +46,6 @@ class FileParser {
 };
 
 }  // namespace config_parser
-}  // namespace xlstousers
+}  // namespace users_creator
 
 #endif  // SRC_CONFIG_PARSER_FILE_PARSER_H_

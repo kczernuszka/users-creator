@@ -20,7 +20,7 @@
 #include <vector>
 #include <string>
 
-namespace xlstousers {
+namespace users_creator {
 namespace users_reader {
 
 class IColumnReader {
@@ -31,6 +31,6 @@ class IColumnReader {
 };
 
 }  // namespace users_reader
-}  // namespace xlstousers
+}  // namespace users_creator
 
 #endif  // INCLUDE_USERS_READER_I_COLUMN_READER_H_

@@ -26,7 +26,7 @@ class CmdParserTest : public ::testing::Test {
 
 TEST_F(CmdParserTest, DefaultValuesAreSet) {
   char **argv = {}; int argc = 0;
-  xlstousers::config_parser::ConfigParser cmd_parser{argc, argv};
+  users_creator::config_parser::ConfigParser cmd_parser{argc, argv};
 
   auto settings = cmd_parser.getConfigFromCmd();
 
@@ -35,11 +35,11 @@ TEST_F(CmdParserTest, DefaultValuesAreSet) {
 }
 
 TEST_F(CmdParserTest, ParseCmdParameterWithValue) {
-  char arg0[] = "xlstousers";
+  char arg0[] = "users_creator";
   std::string arg1 = FULL_OPT_PREFIX + std::string(CONFIG_FILE);
   char arg2[] =  "test";
   char *argv[] = {arg0, &arg1[0], arg2}; int argc = 3;
-  xlstousers::config_parser::ConfigParser cmd_parser{argc, argv};
+  users_creator::config_parser::ConfigParser cmd_parser{argc, argv};
 
   auto settings = cmd_parser.getConfigFromCmd();
 
@@ -48,11 +48,11 @@ TEST_F(CmdParserTest, ParseCmdParameterWithValue) {
 }
 
 TEST_F(CmdParserTest, ParseShortNameCmdParameters) {
-  char arg0[] = "xlstousers";
+  char arg0[] = "users_creator";
   std::string arg1 = SHORT_OPT_PREFIX + std::string(INTERACTIVE_SHORT);
   std::string arg2 = SHORT_OPT_PREFIX + std::string(TEST_MODE_SHORT);
   char *argv[] = {arg0, &arg1[0], &arg2[0]}; int argc = 3;
-  xlstousers::config_parser::ConfigParser cmd_parser{argc, argv};
+  users_creator::config_parser::ConfigParser cmd_parser{argc, argv};
 
   auto settings = cmd_parser.getConfigFromCmd();
 
@@ -63,11 +63,11 @@ TEST_F(CmdParserTest, ParseShortNameCmdParameters) {
 }
 
 TEST_F(CmdParserTest, ParseFullNameCmdParameters) {
-  char arg0[] = "xlstousers";
+  char arg0[] = "users_creator";
   std::string arg1 = FULL_OPT_PREFIX + std::string(INTERACTIVE);
   std::string arg2 = FULL_OPT_PREFIX + std::string(TEST_MODE);
   char *argv[] = {arg0, &arg1[0], &arg2[0]}; int argc = 3;
-  xlstousers::config_parser::ConfigParser cmd_parser{argc, argv};
+  users_creator::config_parser::ConfigParser cmd_parser{argc, argv};
 
   auto settings = cmd_parser.getConfigFromCmd();
 
@@ -78,10 +78,10 @@ TEST_F(CmdParserTest, ParseFullNameCmdParameters) {
 }
 
 TEST_F(CmdParserTest, ParseUnknownCmdParameter) {
-  char arg0[] = "xlstousers";
+  char arg0[] = "users_creator";
   char arg1[] = "--asdf";
   char *argv[] = {arg0, arg1}; int argc = 2;
-  xlstousers::config_parser::ConfigParser cmd_parser{argc, argv};
+  users_creator::config_parser::ConfigParser cmd_parser{argc, argv};
 
   auto settings = cmd_parser.getConfigFromCmd();
 
@@ -89,10 +89,10 @@ TEST_F(CmdParserTest, ParseUnknownCmdParameter) {
 }
 
 TEST_F(CmdParserTest, ParseCmdParameterWithoutMandatoryValue) {
-  char arg0[] = "xlstousers";
+  char arg0[] = "users_creator";
   std::string arg1 = FULL_OPT_PREFIX + std::string(CONFIG_FILE);
   char *argv[] = {arg0, &arg1[0]}; int argc = 2;
-  xlstousers::config_parser::ConfigParser cmd_parser{argc, argv};
+  users_creator::config_parser::ConfigParser cmd_parser{argc, argv};
 
   auto settings = cmd_parser.getConfigFromCmd();
 
@@ -100,10 +100,10 @@ TEST_F(CmdParserTest, ParseCmdParameterWithoutMandatoryValue) {
 }
 
 TEST_F(CmdParserTest, ParseValueWithoutOption) {
-  char arg0[] = "xlstousers";
+  char arg0[] = "users_creator";
   char arg1[] = "test.xls";
   char *argv[] = {arg0, arg1}; int argc = 2;
-  xlstousers::config_parser::ConfigParser cmd_parser{argc, argv};
+  users_creator::config_parser::ConfigParser cmd_parser{argc, argv};
 
   auto settings = cmd_parser.getConfigFromCmd();
 

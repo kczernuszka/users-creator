@@ -13,9 +13,9 @@ USERS_READER = src/users_reader
 CONFIG_PARSER_TESTS = src/config_parser/unittests
 USERS_READER_TESTS = src/users_reader/unittests
 
-all: bin/xlstousers bin/tests
+all: bin/users_creator bin/tests
 
-bin/xlstousers: build/main.o $(OBJ)
+bin/users_creator: build/main.o $(OBJ)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS) 
 
 bin/tests: $(TESTS_OBJ)

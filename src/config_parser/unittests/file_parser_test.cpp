@@ -23,7 +23,7 @@
 
 class FileParserTest : public ::testing::Test {
  protected:
-  xlstousers::config_parser::ConfigParser file_parser{0, {}};
+  users_creator::config_parser::ConfigParser file_parser{0, {}};
 
   ~FileParserTest() {
     remove("config1.txt-test");
@@ -35,7 +35,7 @@ class FileParserTest : public ::testing::Test {
 
 TEST_F(FileParserTest, DefaultValuesAreSet) {
   std::map<std::string, std::string> def_options_val = 
-      xlstousers::config_parser::file_options;
+      users_creator::config_parser::file_options;
   const int default_password_len = std::stoi(def_options_val[PASSWORD_LEN]);
   const std::string default_home = def_options_val[HOME];
   const int default_blocks_hard_limit = std::stoi(

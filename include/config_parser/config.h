@@ -21,7 +21,7 @@
 #include <vector>
 #include <string>
 
-namespace xlstousers {
+namespace users_creator {
 namespace config_parser {
 
 struct UidsRange {
@@ -65,6 +65,6 @@ struct Config {
 };
 
 }  // namespace config_parser
-}  // namespace xlstousers
+}  // namespace users_creator
 
 #endif  // INCLUDE_CONFIG_PARSER_CONFIG_H_

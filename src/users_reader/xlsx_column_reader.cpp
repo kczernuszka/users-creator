@@ -17,7 +17,7 @@
 #include "users_reader/xlsx_column_reader.h"
 #include <iostream>
 
-namespace xlstousers {
+namespace users_creator {
 namespace users_reader {
 
 XlsxColumnReader::~XlsxColumnReader() {
@@ -69,4 +69,4 @@ OpenXLSX::XLCellReference XlsxColumnReader::getHeaderLocation(
 }
 
 }  // namespace users_reader
-}  // namespace xlstousers
+}  // namespace users_creator

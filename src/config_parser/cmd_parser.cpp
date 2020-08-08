@@ -16,7 +16,7 @@
 
 #include "config_parser/cmd_parser.h"
 
-namespace xlstousers {
+namespace users_creator {
 namespace config_parser {
 
 const char* XLSFILE_OPTION_NAME = "xls-file";
@@ -86,4 +86,4 @@ std::string CmdParser::createOptionName(const std::string full_name,
 }
 
 }  // namespace config_parser
-}  // namespace xlstousers
+}  // namespace users_creator

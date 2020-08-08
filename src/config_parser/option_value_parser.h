@@ -26,12 +26,12 @@
 
 const char* const VALUES_DELIMITER = ",";
 
-namespace xlstousers {
+namespace users_creator {
 namespace config_parser {
 
 std::vector<std::string> valueToVector(std::string value);
 
 }  // namespace config_parser
-}  // namespace xlstousers
+}  // namespace users_creator
 
 #endif  // SRC_CONFIG_PARSER_OPTION_VALUE_PARSER_H_

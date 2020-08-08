@@ -23,7 +23,7 @@
 #include "config_parser/file_parser.h"
 #include "config_parser/cmd_parser.h"
 
-namespace xlstousers {
+namespace users_creator {
 namespace config_parser {
 
 class ConfigParser {
@@ -39,6 +39,6 @@ class ConfigParser {
 };
 
 }  // namespace config_parser
-}  // namespace xlstousers
+}  // namespace users_creator
 
 #endif  // SRC_CONFIG_PARSER_CONFIG_PARSER_H_

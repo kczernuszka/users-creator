@@ -25,7 +25,7 @@
 
 #include "users_reader/i_column_reader.h"
 
-namespace xlstousers {
+namespace users_creator {
 namespace users_reader {
 
 class XlsxColumnReader : public IColumnReader {
@@ -43,6 +43,6 @@ class XlsxColumnReader : public IColumnReader {
 };
 
 }  // namespace users_reader
-}  // namespace xlstousers
+}  // namespace users_creator
 
 #endif  // SRC_USERS_READER_XLSX_COLUMN_READER_H_

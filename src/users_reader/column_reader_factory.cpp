@@ -16,7 +16,7 @@
 
 #include "users_reader/column_reader_factory.h"
 
-namespace xlstousers {
+namespace users_creator {
 namespace users_reader {
 
 std::unique_ptr<IColumnReader> ColumnReader::getColumnReader(std::string file) {
@@ -33,4 +33,4 @@ std::string ColumnReader::getFileExtension(std::string file) {
 }
 
 }  // namespace users_reader
-}  // namespace xlstousers
+}  // namespace users_creator

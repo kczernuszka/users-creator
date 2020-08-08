@@ -16,7 +16,7 @@
 
 #include "config_parser/file_parser.h"
 
-namespace xlstousers {
+namespace users_creator {
 namespace config_parser {
 
 std::unique_ptr<Config> FileParser::getConfig(std::string file) {
@@ -92,4 +92,4 @@ std::unique_ptr<Config> FileParser::getValues(po::variables_map vm) {
 }
 
 }  // namespace config_parser
-}  // namespace xlstousers
+}  // namespace users_creator

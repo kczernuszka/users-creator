@@ -16,7 +16,7 @@
 
 #include "config_parser/option_value_parser.h"
 
-namespace xlstousers {
+namespace users_creator {
 namespace config_parser {
 
 std::vector<std::string> valueToVector(std::string value) {
@@ -31,4 +31,4 @@ std::vector<std::string> valueToVector(std::string value) {
 }
 
 }  // namespace config_parser
-}  // namespace xlstousers
+}  // namespace users_creator

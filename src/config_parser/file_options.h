@@ -38,7 +38,7 @@ const char BLOCKS_TIME[] = "block_time";
 const char INODES_TIME[] = "inodes_time";
 const char PATH_QUOTA[] = "path_quota";
 
-namespace xlstousers {
+namespace users_creator {
 namespace config_parser {
 
 const std::map<std::string, std::string> file_options {
@@ -62,6 +62,6 @@ const std::map<std::string, std::string> file_options {
 };
 
 }  // namespace config_parser
-}  // namespace xlstousers
+}  // namespace users_creator
 
 #endif  // INCLUDE_CONFIG_PARSER_FILE_OPTIONS_H_

@@ -18,10 +18,10 @@
 #include "users_reader/users_reader.h"
 
 int main(int argc, char *argv[]) {
-  xlstousers::config_parser::ConfigParser config_parser{argc, argv};
+  users_creator::config_parser::ConfigParser config_parser{argc, argv};
   auto program_settings = config_parser.getConfigFromCmd();
   auto config = config_parser.getConfigFromFile(program_settings->config_file);
-  xlstousers::users_reader::UsersReader
+  users_creator::users_reader::UsersReader
       users_reader{"test.xlsx"};
   auto columns_values = users_reader.getColumnsValues(config->columns);
   return 0;

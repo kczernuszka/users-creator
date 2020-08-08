@@ -17,7 +17,7 @@
 #include "users_reader/users_reader.h"
 #include "users_reader/column_reader_factory.h"
 
-namespace xlstousers {
+namespace users_creator {
 namespace users_reader {
 
 UsersReader::UsersReader(std::string file) :
@@ -50,4 +50,4 @@ bool UsersReader::columnsAreTheSameLength(ColumnsValues columns_values) {
 }
 
 }  // namespace users_reader
-}  // namespace xlstousers
+}  // namespace users_creator

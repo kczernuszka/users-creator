@@ -17,7 +17,7 @@
 #include "config_parser/config_parser.h"
 #include "config_parser/config.h"
 
-namespace xlstousers {
+namespace users_creator {
 namespace config_parser {
 
 ConfigParser::ConfigParser(int argc, char **argv) :
@@ -32,4 +32,4 @@ std::unique_ptr<ProgramSettings> ConfigParser::getConfigFromCmd() {
 }
 
 }  // namespace config_parser
-}  // namespace xlstousers
+}  // namespace users_creator

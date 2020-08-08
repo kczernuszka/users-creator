@@ -26,7 +26,7 @@
 
 #include "users_reader/i_column_reader.h"
 
-namespace xlstousers {
+namespace users_creator {
 namespace users_reader {
 
 using ColumnsValues = std::vector<std::vector<std::string> >;
@@ -45,6 +45,6 @@ class UsersReader {
 };
 
 }  // namespace users_reader
-}  // namespace xlstousers
+}  // namespace users_creator
 
 #endif  // INCLUDE_USERS_READER_USERS_READER_H_

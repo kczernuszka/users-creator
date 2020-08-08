@@ -62,7 +62,7 @@ class XlsReaderTest : public ::testing::Test {
 };
 
 TEST_F(XlsReaderTest, GetColumnsValues) {
-  auto xls_reader = xlstousers::users_reader::UsersReader{file};
+  auto xls_reader = users_creator::users_reader::UsersReader{file};
 
   auto columns_values = xls_reader.getColumnsValues(headers);
 
@@ -76,7 +76,7 @@ TEST_F(XlsReaderTest, GetColumnsValues) {
 TEST_F(XlsReaderTest, GetColumnsValuesIfIsMissingHeader) {
   copyDocument("test.xlsx", "test2.xlsx");
   clearCell("test2.xlsx", "B1");
-  auto xls_reader = xlstousers::users_reader::
+  auto xls_reader = users_creator::users_reader::
       UsersReader("test2.xlsx");
 
   auto columns_values = xls_reader.getColumnsValues(headers);
@@ -87,7 +87,7 @@ TEST_F(XlsReaderTest, GetColumnsValuesIfIsMissingHeader) {
 TEST_F(XlsReaderTest, GetValuesFromNotEqualLengthColumns) {
   copyDocument("test.xlsx", "test3.xlsx");
   clearCell("test3.xlsx", "B3");
-  auto xls_reader = xlstousers::users_reader::
+  auto xls_reader = users_creator::users_reader::
       UsersReader{"test3.xlsx"};
 
   auto columns_values = xls_reader.getColumnsValues(headers);
@@ -96,7 +96,7 @@ TEST_F(XlsReaderTest, GetValuesFromNotEqualLengthColumns) {
 }
 
 TEST_F(XlsReaderTest, HandleNotExistingFile) {
-  auto xls_reader = xlstousers::users_reader::
+  auto xls_reader = users_creator::users_reader::
       UsersReader{"notExistingFile.xlsx"};
 
   auto columns_values = xls_reader.getColumnsValues(headers);
