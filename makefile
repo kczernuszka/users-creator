@@ -1,68 +1,38 @@
-CXX = g++
-CXXFLAGS = -std=c++17 -Iinclude/ -Isrc/ -Ilibs/ -g
-LDFLAGS = -L/usr/lib/x86_64-linux-gnu/ -Llibs/
-LDLIBS = -lboost_program_options -lOpenXLSX
-OBJ = build/file_parser.o build/cmd_parser.o build/option_value_parser.o build/config_parser.o build/users_reader.o build/xlsx_column_reader.o build/column_reader_factory.o
+CXXFLAGS := -std=c++17 -Iinclude/ -Isrc/ -Ilibs/ -g
+LDLIBS := -lboost_program_options -lOpenXLSX
+TESTS_LDLIBS := -lgtest -lgtest_main -pthread
+LDFLAGS := -Llibs/
 
-TESTS_OBJ = $(OBJ) build/unittests.o build/file_parser_test.o build/cmd_parser_test.o build/option_value_parser_test.o build/xlsx_reader_test.o
-TESTS_LDLIBS = -lgtest -lgtest_main -pthread
-TEST_FLAGS = -Iinclude/ -Isrc/ -Ilibs/ -g
+BIN_DIR ?= ./bin
+BUILD_DIR ?= ./build
+SRC_DIRS ?= ./src
+TESTS_DIR ?= ./tests
 
-CONFIG_PARSER = src/config_parser
-USERS_READER = src/users_reader
-CONFIG_PARSER_TESTS = src/config_parser/unittests
-USERS_READER_TESTS = src/users_reader/unittests
+CONFIG_PARSER_DIR = src/config_parser
+USERS_READER_DIR  = src/users_reader
 
-all: bin/users_creator bin/tests
+SRCS := $(shell find $(SRC_DIRS) -maxdepth 2 -name "*.cpp")
+OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 
-bin/users_creator: build/main.o $(OBJ)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS) 
+TESTS_SRCS := $(shell find $(SRC_DIRS)/*/unittests -name "*.cpp")
+TESTS_OBJS := $(TEST_SRCS:%=$(BUILD_DIR)/%.o)
 
-bin/tests: $(TESTS_OBJ)
-	$(CXX) $(TEST_FLAGS) -o $@ $^ $(TESTS_LDLIBS) $(LDLIBS)
+all: $(BIN_DIR)/users_creator $(BIN_DIR)/tests
 
-build/config_parser.o: $(CONFIG_PARSER)/config_parser.cpp include/config_parser/config_parser.h
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(CONFIG_PARSER)/config_parser.cpp -c -o build/config_parser.o
+$(BIN_DIR)/tests: $(BUILD_DIR)/unittests.o $(TESTS_OBJS)
+	$(CXX) -o $@ $^ $(TESTS_LDLIBS) $(LDLIBS)
 
-build/file_parser.o: $(CONFIG_PARSER)/file_parser.cpp $(CONFIG_PARSER)/file_parser.h
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(CONFIG_PARSER)/file_parser.cpp -c -o build/file_parser.o $(LDLIBS)
+$(BIN_DIR)/users_creator: $(BUILD_DIR)/main.o $(OBJS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $(foreach file,$^, $(BUILD_DIR)/$(shell basename $(file))) $(LDLIBS)
 
-build/cmd_parser.o: $(CONFIG_PARSER)/cmd_parser.cpp $(CONFIG_PARSER)/cmd_parser.h
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(CONFIG_PARSER)/cmd_parser.cpp -c -o build/cmd_parser.o
+$(BUILD_DIR)/main.o: main.cpp
+	$(CXX) $(CXXFLAGS) -c main.cpp -o $(BUILD_DIR)/main.o $(LDLIBS)
 
-build/option_value_parser.o: $(CONFIG_PARSER)/option_value_parser.cpp $(CONFIG_PARSER)/option_value_parser.h
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(CONFIG_PARSER)/option_value_parser.cpp -c -o build/option_value_parser.o
+$(BUILD_DIR)/unittests.o: $(TESTS_DIR)/unittests.cpp
+	$(CXX) $(CXXFLAGS) -c $(TESTS_DIR)/unittests.cpp -o $(BUILD_DIR)/unittests.o $(TESTS_LDLIBS)
 
-build/users_reader.o: $(USERS_READER)/users_reader.cpp include/users_reader/users_reader.h
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(USERS_READER)/users_reader.cpp -c -o build/users_reader.o
-
-build/xlsx_column_reader.o: $(USERS_READER)/xlsx_column_reader.cpp $(USERS_READER)/xlsx_column_reader.h
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(USERS_READER)/xlsx_column_reader.cpp -c -o build/xlsx_column_reader.o $(LDLIBS)
-
-build/column_reader_factory.o: $(USERS_READER)/column_reader_factory.cpp $(USERS_READER)/column_reader_factory.h
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(USERS_READER)/column_reader_factory.cpp -c -o build/column_reader_factory.o
-
-build/main.o: main.cpp
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) main.cpp -c -o build/main.o
+$(OBJS) : $(BUILD_DIR)/%.cpp.o : %.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $(BUILD_DIR)/$(shell basename $@)
 
 clean:
-	rm build/*.o
-
-
-#*****************************************************************************
-#tests
-
-build/file_parser_test.o: $(CONFIG_PARSER_TESTS)/file_parser_test.cpp
-	$(CXX)  $(CXXFLAGS) $(TEST_FLAGS) $(LDFLAGS) $(CONFIG_PARSER_TESTS)/file_parser_test.cpp -c -o build/file_parser_test.o $(TESTS_LDLIBS) $(LDLIBS)
-
-build/cmd_parser_test.o: $(CONFIG_PARSER_TESTS)/cmd_parser_test.cpp
-	$(CXX) $(CXXFLAGS) $(TEST_FLAGS) $(LDFLAGS) $(CONFIG_PARSER_TESTS)/cmd_parser_test.cpp -c -o build/cmd_parser_test.o $(TESTS_LDLIBS) $(LDLIBS)
-
-build/option_value_parser_test.o: $(CONFIG_PARSER_TESTS)/option_value_parser_test.cpp
-	$(CXX) $(CXXFLAGS) $(TEST_FLAGS) $(LDFLAGS) $(CONFIG_PARSER_TESTS)/option_value_parser_test.cpp -c -o build/option_value_parser_test.o $(TESTS_LDLIBS)
-
-build/xlsx_reader_test.o: $(USERS_READER_TESTS)/xlsx_reader_test.cpp
-	$(CXX) $(CXXFLAGS) $(TEST_FLAGS) $(LDFLAGS) $(USERS_READER_TESTS)/xlsx_reader_test.cpp -c -o build/xlsx_reader_test.o $(LDLIBS)
-
-build/unittests.o: tests/unittests.cpp
-	$(CXX) $(CXXFLAGS) $(TEST_FLAGS) $(LDFLAGS) tests/unittests.cpp -c -o build/unittests.o $(TESTS_LDLIBS)
+	$(RM) -r $(BUILD_DIR)
