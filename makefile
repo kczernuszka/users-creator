@@ -7,13 +7,13 @@ BIN_DIR ?= ./bin
 BUILD_DIR ?= ./build
 SRC_DIRS ?= ./src
 TESTS_DIR ?= ./tests
-UNITTESTS_DIR ?= ./$(SRC_DIRS)/*/unittests
+UNITTESTS_DIR ?= ./src/*/unittests
 
 SRCS := $(shell find $(SRC_DIRS) -maxdepth 2 -name "*.cpp")
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 
 TESTS_SRCS := $(shell find $(UNITTESTS_DIR) -name "*.cpp")
-TESTS_OBJS := $(TEST_SRCS:%=$(BUILD_DIR)/%.o)
+TESTS_OBJS := $(TESTS_SRCS:%=$(BUILD_DIR)/%.o)
 
 all: $(BIN_DIR)/users_creator $(BIN_DIR)/tests
 
