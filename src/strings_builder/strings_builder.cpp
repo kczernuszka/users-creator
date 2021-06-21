@@ -27,5 +27,9 @@ std::string StringsBuilder::getLogin() {
   return login;
 }
 
+std::string StringsBuilder::getHomeDirectory(std::string root_home) {
+  return root_home + "/" + login;
+}
+
 }  // namespace strings_builder
 }  // namespace users_creator

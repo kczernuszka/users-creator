@@ -24,8 +24,9 @@ namespace strings_builder {
 
 class StringsBuilder {
  public:
-  StringsBuilder(std::string, std::string);
+  StringsBuilder(std::string forename, std::string surname);
   std::string getLogin();
+  std::string getHomeDirectory(std::string root_home);
 
  private:
   std::string login;

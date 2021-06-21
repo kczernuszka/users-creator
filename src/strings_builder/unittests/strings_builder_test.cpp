@@ -28,3 +28,7 @@ class StringsBuilderTest : public ::testing::Test {
 TEST_F(StringsBuilderTest, GetLogin) {
   EXPECT_EQ(strings_builder.getLogin(), "J.Nowak");
 }
+
+TEST_F(StringsBuilderTest, GetHomeDirectory) {
+  EXPECT_EQ(strings_builder.getHomeDirectory("/home"), "/home/J.Nowak");
+}
