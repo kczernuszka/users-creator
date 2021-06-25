@@ -14,13 +14,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>
 //
 
-#ifndef INCLUDE_STRINGS_BUILDER_STRINGS_BUILDER_H_
-#define INCLUDE_STRINGS_BUILDER_STRINGS_BUILDER_H_
+#ifndef SRC_ACCOUNT_CREATOR_STRINGS_BUILDER_H_
+#define SRC_ACCOUNT_CREATOR_STRINGS_BUILDER_H_
 
 #include <string>
 
 namespace users_creator {
-namespace strings_builder {
+namespace account_creator {
 
 class StringsBuilder {
  public:
@@ -35,8 +35,7 @@ class StringsBuilder {
   int sufix;
 };
 
-}  // namespace strings_builder
+}  // namespace account_creator
 }  // namespace users_creator
 
-
-#endif  // INCLUDE_STRINGS_BUILDER_STRINGS_BUILDER_H_
+#endif  // SRC_ACCOUNT_CREATOR_STRINGS_BUILDER_H_

@@ -14,10 +14,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>
 //
 
-#include "strings_builder/strings_builder.h"
+#include "account_creator/strings_builder.h"
 
 namespace users_creator {
-namespace strings_builder {
+namespace account_creator {
 
 StringsBuilder::StringsBuilder(std::string forename, std::string surname) {
   login = forename.substr(0, 1) + "." + surname;
@@ -49,5 +49,5 @@ void StringsBuilder::changeLogin() {
   login += std::to_string(sufix);
 }
 
-}  // namespace strings_builder
+}  // namespace account_creator
 }  // namespace users_creator
