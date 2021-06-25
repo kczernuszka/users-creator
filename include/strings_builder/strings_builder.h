@@ -27,6 +27,7 @@ class StringsBuilder {
   StringsBuilder(std::string forename, std::string surname);
   std::string getLogin();
   std::string getHomeDirectory(std::string root_home);
+  std::string generatePassword(int password_len = 8);
 
  private:
   std::string login;

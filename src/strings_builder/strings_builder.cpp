@@ -31,5 +31,17 @@ std::string StringsBuilder::getHomeDirectory(std::string root_home) {
   return root_home + "/" + login;
 }
 
+std::string StringsBuilder::generatePassword(int password_len) {
+  const char charset[] = "0123456789"
+                   "abcdefghijklmnopqrstuvwxyz"
+                   "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  std::string random_password;
+  srand(time(0));
+  for (int i = 0; i < password_len; i++) {
+    random_password.push_back(charset[rand() % (sizeof(charset) - 1)]);
+  }
+  return random_password;
+}
+
 }  // namespace strings_builder
 }  // namespace users_creator
