@@ -29,6 +29,13 @@ TEST_F(StringsBuilderTest, GetLogin) {
   EXPECT_EQ(strings_builder.getLogin(), "J.Nowak");
 }
 
+TEST_F(StringsBuilderTest, ChangeLogin) {
+  strings_builder.changeLogin();
+  EXPECT_EQ(strings_builder.getLogin(), "J.Nowak2");
+  strings_builder.changeLogin();
+  EXPECT_EQ(strings_builder.getLogin(), "J.Nowak23");
+}
+
 TEST_F(StringsBuilderTest, GetHomeDirectory) {
   EXPECT_EQ(strings_builder.getHomeDirectory("/home"), "/home/J.Nowak");
 }

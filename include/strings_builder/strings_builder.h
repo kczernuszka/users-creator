@@ -28,9 +28,11 @@ class StringsBuilder {
   std::string getLogin();
   std::string getHomeDirectory(std::string root_home);
   std::string generatePassword(int password_len = 8);
+  void changeLogin();
 
  private:
   std::string login;
+  int sufix;
 };
 
 }  // namespace strings_builder

@@ -21,6 +21,7 @@ namespace strings_builder {
 
 StringsBuilder::StringsBuilder(std::string forename, std::string surname) {
   login = forename.substr(0, 1) + "." + surname;
+  sufix = 1;
 }
 
 std::string StringsBuilder::getLogin() {
@@ -41,6 +42,11 @@ std::string StringsBuilder::generatePassword(int password_len) {
     random_password.push_back(charset[rand() % (sizeof(charset) - 1)]);
   }
   return random_password;
+}
+
+void StringsBuilder::changeLogin() {
+  sufix++;
+  login += std::to_string(sufix);
 }
 
 }  // namespace strings_builder
