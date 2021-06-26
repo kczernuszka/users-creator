@@ -16,9 +16,9 @@
 
 #include <gtest/gtest.h>
 
-#include "strings_builder/strings_builder.h"
+#include "account_creator/strings_builder.h"
 
-using StringsBuilder = users_creator::strings_builder::StringsBuilder;
+using StringsBuilder = users_creator::account_creator::StringsBuilder;
 
 class StringsBuilderTest : public ::testing::Test {
  protected:
